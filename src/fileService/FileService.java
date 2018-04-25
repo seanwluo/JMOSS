@@ -1,7 +1,7 @@
 /**
  * 
  */
-package main;
+package fileService;
 
 import java.io.*;
 import java.util.Scanner;
@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class FileService {
 
-	String fileName = "jMoSS.txt";
+	private String fileName = "jMoSS.txt";
 
 	/*
 	 * Create method to write on file
@@ -43,14 +43,15 @@ public class FileService {
 	 * Create method to read from file
 	 */
 
-	public void read() {
+	public String read() {
 		File file = new File(fileName);
+		String data="";
 		try {
 
 			Scanner inputStream = new Scanner(file);
 			inputStream.nextLine(); // ignore the first line
 			while (inputStream.hasNext()) {
-				String data = inputStream.nextLine();// gets a whole line
+				data = inputStream.nextLine();// gets a whole line
 
 				System.out.println(data);
 
@@ -59,6 +60,7 @@ public class FileService {
 		} catch (IOException e) {
 			System.out.println("File Not Found!!");
 		}
+		return data;
 	}
 }
 
