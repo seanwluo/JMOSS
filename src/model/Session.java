@@ -2,66 +2,74 @@ package model;
 
 public class Session
 {
-	private String sessionId;
-	private String movieName;
-	private String theaterName;
-	private String date;
-	private String time;
+	private String _sessionId;
+	private String _movieName;
+	private String _theaterName;
+	private String _date;
+	private String _time;
+	
+	public Session(String sessionId) {
+		this._sessionId = sessionId;
+	}
 	
 	public Session(String sessionId, String movieName, String theaterName, 
 			String date, String time)
 	{
-		
+		this._sessionId = sessionId;
+		this._movieName = movieName;
+		this._theaterName = theaterName;
+		this._date = date;
+		this._time = time;
 	}
 
 	public String getSessionId()
 	{
-		return sessionId;
+		return _sessionId;
 	}
 
 	public void setSessionId(String sessionId)
 	{
-		this.sessionId = sessionId;
+		this._sessionId = sessionId;
 	}
 
 	public String getMovieName()
 	{
-		return movieName;
+		return _movieName;
 	}
 
 	public void setMovieName(String movieName)
 	{
-		this.movieName = movieName;
+		this._movieName = movieName;
 	}
 
 	public String getTheaterName()
 	{
-		return theaterName;
+		return _theaterName;
 	}
 
 	public void setTheaterName(String theaterName)
 	{
-		this.theaterName = theaterName;
+		this._theaterName = theaterName;
 	}
 
 	public String getDate()
 	{
-		return date;
+		return _date;
 	}
 
 	public void setDate(String date)
 	{
-		this.date = date;
+		this._date = date;
 	}
 
 	public String getTime()
 	{
-		return time;
+		return _time;
 	}
 
 	public void setTime(String time)
 	{
-		this.time = time;
+		this._time = time;
 	}
 	
 }
