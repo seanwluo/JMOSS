@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import Service.UserService;
 
+import view.MainMenu;
+
 public class App
 {
 	public static void main(String[] args)
@@ -12,6 +14,8 @@ public class App
 		boolean exit=false;
 		
 		System.out.println("Welcome to jMOSS");
+		MainMenu menu = new MainMenu();
+		menu.show();
 		
 		do {
 			
