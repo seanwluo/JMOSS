@@ -1,6 +1,6 @@
 package model;
 
-public class Session
+public class MovieSession
 {
 	private String _sessionId;
 	private String _movieName;
@@ -8,11 +8,11 @@ public class Session
 	private String _date;
 	private String _time;
 	
-	public Session(String sessionId) {
+	public MovieSession(String sessionId) {
 		this._sessionId = sessionId;
 	}
 	
-	public Session(String sessionId, String movieName, String theaterName, 
+	public MovieSession(String sessionId, String movieName, String theaterName, 
 			String date, String time)
 	{
 		this._sessionId = sessionId;
