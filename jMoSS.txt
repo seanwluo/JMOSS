@@ -1,0 +1,6 @@
+TheaterName,Location
+Movie Plaza theatre,St Kilda
+Movie Plaza theatre,Fitzroy
+Movie Plaza theatre,Melbourne CBD
+Movie Plaza theatre,Sunshine
+Movie Plaza theatre,Lilydale

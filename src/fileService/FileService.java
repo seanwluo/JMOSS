@@ -20,14 +20,14 @@ public class FileService {
 	 */
 	
 	// Parameters we can add them as we need 
-	public static <T>void write(T object) {
+	public void write(String txt) {
 
 		try {
 			FileWriter fw = new FileWriter(fileName, true);
 			BufferedWriter bw = new BufferedWriter(fw);
 			PrintWriter pw = new PrintWriter(bw);
 
-			pw.println(object);
+			pw.println(txt);
 			pw.flush();
 			pw.close();
 
