@@ -44,21 +44,20 @@ public class FileService {
 	 */
 
 	public String read() {
-		File file = new File(fileName);
+		
 		String data="";
 		try {
-
-			Scanner inputStream = new Scanner(file);
-			inputStream.nextLine(); // ignore the first line
-			while (inputStream.hasNext()) {
-				data = inputStream.nextLine();// gets a whole line
-
+			BufferedReader input=new BufferedReader(new FileReader (fileName));
+			data=input.readLine(); 
+			while (data != null) {
 				System.out.println(data);
-
+				data=input.readLine();
+								
 			}
-			inputStream.close();
+			input.close();
 		} catch (IOException e) {
-			System.out.println("File Not Found!!");
+			System.out.println("File Reading Error!!");
+			System.exit(0);
 		}
 		return data;
 	}
