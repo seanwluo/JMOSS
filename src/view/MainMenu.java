@@ -1,5 +1,7 @@
 package view;
 
+import Service.MovieSessionService;
+
 public class MainMenu extends AbstractMenu
 {
 	@Override
@@ -18,6 +20,8 @@ public class MainMenu extends AbstractMenu
 		{
 			case "1":
 				System.out.println("\nMovie session list");
+				MovieSessionService mvService = new MovieSessionService();
+				mvService.list();
 				break;
 			case "2":
 				System.out.println("Movie session selected");

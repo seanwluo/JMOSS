@@ -3,7 +3,6 @@ package main;
 import java.util.Scanner;
 
 import Service.UserService;
-
 import view.MainMenu;
 
 public class App
