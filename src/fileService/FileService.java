@@ -4,6 +4,8 @@
 package fileService;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -14,6 +16,8 @@ import javax.swing.JOptionPane;
 public class FileService {
 
 	private String fileName = "jMoSS.txt";
+	
+	public FileService() {}
 	
 	public FileService(String fileName) {
 		this.fileName = fileName;		
@@ -47,22 +51,23 @@ public class FileService {
 	 * Create method to read from file
 	 */
 
-	public String read() {
+	public List<String> read() {
 		File file = new File(fileName);
-		String data="";
+		List<String> dataArray = new ArrayList();
 		try {
 
 			Scanner inputStream = new Scanner(file);
 			inputStream.nextLine(); // ignore the first line
 			while (inputStream.hasNext()) {
-				data = inputStream.nextLine();// gets a whole line
+//				data = inputStream.nextLine();// gets a whole line
 //				System.out.println(data);
+				dataArray.add(inputStream.nextLine());
 			}
 			inputStream.close();
 		} catch (IOException e) {
 			System.out.println("File Not Found!!");
 		}
-		return data;
+		return dataArray;
 	}
 }
 

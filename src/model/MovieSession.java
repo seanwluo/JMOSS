@@ -72,4 +72,8 @@ public class MovieSession
 		this._time = time;
 	}
 	
+	public String toString()
+	{
+		return _sessionId + ", "  +  _movieName + ", " + _theaterName + ", " + _date + ", " + _time;
+	}
 }

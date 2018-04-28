@@ -13,9 +13,7 @@ public class App
 		boolean exit=false;
 		
 		System.out.println("Welcome to jMOSS");
-		MainMenu menu = new MainMenu();
-		menu.show();
-		
+	
 		do {
 			
 			System.out.println("\nLogin");
@@ -30,6 +28,9 @@ public class App
 			if( usrService.login(username, password) )
 			{
 				System.out.println("\nUser Logged in!!");
+				
+				MainMenu menu = new MainMenu();
+				menu.show();
 				exit = true;
 			} else
 			{
