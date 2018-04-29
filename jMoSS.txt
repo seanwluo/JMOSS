@@ -23,8 +23,5 @@ sessionId,MovieName,TheatreName,time
 2,Movie2,Lilydale,12:00
 3,Movie3,Lilydale,15:00
 4,Movie4,Lilydale,17:00
-<<<<<<< HEAD
 5,Movie5,Lilydale,20:00
-=======
-5,Movie5,Lilydale,20:00
->>>>>>> fbc80cff24f0d6fd023c6f4ccad79ba191af0e12
+
