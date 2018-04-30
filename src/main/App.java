@@ -3,6 +3,7 @@ package main;
 import java.util.Scanner;
 
 import Service.UserService;
+import view.MainMenu;
 
 public class App
 {
@@ -27,11 +28,14 @@ public class App
 			if( usrService.login(username, password) )
 			{
 				System.out.println("\nUser Logged in!!");
+        MainMenu menu = new MainMenu();
+		    menu.show();
 				exit = true;
 			} else
 			{
 				System.out.println("\nWorng Username or Password");
 			}
 		} while(exit!=true);
+
 	}
 }
