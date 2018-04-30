@@ -56,16 +56,16 @@ public class FileService {
 		List<String> dataArray = new ArrayList();
 		try {
 
-			Scanner inputStream = new Scanner(file);
-			inputStream.nextLine(); // ignore the first line
-			while (inputStream.hasNext()) {
-//				data = inputStream.nextLine();// gets a whole line
+			BufferedReader input = new BufferedReader(new FileReader (fileName));
+		  input.readLine(); //ignore the first line
+			while (input.hasNext()) {
 //				System.out.println(data);
-				dataArray.add(inputStream.nextLine());
+				dataArray.add(input.readLine(););
 			}
-			inputStream.close();
+			input.close();
 		} catch (IOException e) {
-			System.out.println("File Not Found!!");
+			System.out.println("File Reading Error!!");
+			System.exit(0);
 		}
 		return dataArray;
 	}
