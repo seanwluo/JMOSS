@@ -13,7 +13,11 @@ import javax.swing.JOptionPane;
  */
 public class FileService {
 
-	private static String fileName = "jMoSS.txt";
+	private String fileName = "jMoSS.txt";
+	
+	public FileService(String fileName) {
+		this.fileName = fileName;		
+	}
 
 	/*
 	 * Create method to write on file
@@ -48,11 +52,10 @@ public class FileService {
 		String data="";
 		try {
 			BufferedReader input=new BufferedReader(new FileReader (fileName));
-			data=input.readLine(); 
+			data=input.readLine(); //ignore the first line
 			while (data != null) {
 				System.out.println(data);
 				data=input.readLine();
-								
 			}
 			input.close();
 		} catch (IOException e) {
