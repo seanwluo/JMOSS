@@ -1,5 +1,7 @@
 package view;
 
+import Service.SeatService;
+
 public class MovieSessionMenu extends AbstractMenu
 {
 
@@ -18,6 +20,8 @@ public class MovieSessionMenu extends AbstractMenu
 		{
 			case "1":
 				System.out.println("\nMovie session seats");
+				SeatService seatService = new SeatService();
+				seatService.seatList();
 				break;
 			case "2":
 				System.out.println("\nSeat selected");
