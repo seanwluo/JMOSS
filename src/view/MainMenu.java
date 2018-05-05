@@ -1,9 +1,17 @@
 package view;
 
 import Service.MovieSessionService;
+import model.MovieSession;
 
 public class MainMenu extends AbstractMenu
 {
+	private MovieSessionService mvService;
+	
+	public MainMenu()
+	{
+		mvService = new MovieSessionService();
+	}
+	
 	@Override
 	protected String getMenu()
 	{
@@ -20,13 +28,21 @@ public class MainMenu extends AbstractMenu
 		{
 			case "1":
 				System.out.println("\nMovie session list");
-				MovieSessionService mvService = new MovieSessionService();
 				mvService.list();
 				break;
 			case "2":
-				System.out.println("Movie session selected");
-				MovieSessionMenu msm = new MovieSessionMenu();
-				msm.show();
+				System.out.println("\nEnter Movie Session Id: ");
+				String id = reader.nextLine();
+				MovieSession movieSession = mvService.findById(id);
+				if(movieSession != null)
+				{
+					System.out.println("Movie session selected");
+					MovieSessionMenu msm = new MovieSessionMenu(movieSession);
+					msm.show();
+				} else {
+					System.out.println("Movie Session Not Found!!!");
+				}
+				
 				break;
 			case "0":
 				System.out.println("\nExiting System. \n Bye!!! ");

@@ -1,8 +1,16 @@
 package view;
 
+import model.Seat;
+
 public class SeatsMenu extends AbstractMenu
 {
-
+	private Seat seat;
+	
+	public SeatsMenu(Seat seat)
+	{
+		this.seat = seat;
+	}
+	
 	@Override
 	protected String getMenu() {
 		return "\nSeat Menu"
@@ -17,10 +25,22 @@ public class SeatsMenu extends AbstractMenu
 		switch(choice)
 		{
 			case "1":
-				System.out.println("\nBook");
+				if(seat.getBook().equals("available") || seat.getBook().equals("")) 
+				{
+					seat.setBook("booked");
+					System.out.println("\nSeat is Booked");
+				} else {
+					System.out.println("Seat is already booked.");
+				}
 				break;
 			case "2":
-				System.out.println("\nRemove booking");
+				if(!seat.getBook().equals("available")) 
+				{
+					seat.setBook("available");
+					System.out.println("\nSeat is available");
+				} else {
+					System.out.println("Seat is not booked.");
+				}
 				break;
 			case "0":
 				System.out.println("\nGoing back to Movie Session Menu");

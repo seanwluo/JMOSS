@@ -9,14 +9,19 @@ import model.User;
 
 public class MovieSessionService
 {	
-	private FileService fService = new FileService();
+	private List<String> movieSessionData = new ArrayList<String>();
+	
+	public MovieSessionService()
+	{	
+		FileService fService = new FileService();
+		this.movieSessionData = fService.read();
+	}
 	
 	public void list()
 	{
-		List<String> movieSessionsData = fService.read();
 		List<MovieSession> movieSessions = new ArrayList();
 		System.out.println("Seesion Id, Movie Name, Theater Name, Date, Time");
-		for(String sessionData: movieSessionsData) {
+		for(String sessionData: movieSessionData) {
 			String[] data = sessionData.split(",");
 			
 			String sessionId = data[0].trim();
@@ -28,5 +33,26 @@ public class MovieSessionService
 			System.out.println(movieSession.toString());
 			movieSessions.add(movieSession);
 		}
+	}
+
+	public MovieSession findById(String id) {
+		MovieSession movieSession = null;
+		for(String sessionData: movieSessionData) {
+			String[] data = sessionData.split(",");
+			
+			String sessionId = data[0].trim();
+			if (sessionId.equals(id))
+			{
+				String movieName = data[1].trim();
+				String theaterName = data[2].trim();
+				String date = data[3].trim();
+				String time = data[4].trim();
+				movieSession = new MovieSession(sessionId, movieName, theaterName, date, time);
+				System.out.println(movieSession.toString());
+				break;
+			}
+		}
+		
+		return movieSession;
 	}
 }
