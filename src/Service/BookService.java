@@ -9,7 +9,7 @@ import model.Seat;
 
 public class BookService
 {
-	private final FileService fService = new FileService("seat.txt");
+	private final FileService fService = new FileService("book.txt");
 	private List<String> bookingData;
 	private Seat seat;
 	private SeatService seatService;
@@ -52,6 +52,8 @@ public class BookService
 		
 		book.setEmail(email);
 		book.setEmail(suburb);
+		String data = String.format("%s, %s, %s", book.getSeatSesionId(), email, suburb);
+		bookingData.add(data);
 	}
 
 	public void removeBooking(String seatSessionId) {
@@ -77,5 +79,15 @@ public class BookService
 		} else {
 			System.out.print("\nRecord noy found.");
 		}
+	}
+
+	public void saveData() {
+		String data = "seatSessionId, email, suburb, time\n";
+		for(String bookData : bookingData)
+		{
+			data += bookData + "\n";
+		}
+		
+		fService.write(data);
 	}
 }

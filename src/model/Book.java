@@ -10,6 +10,7 @@ public class Book {
 	public Book(Seat seat)
 	{
 		this.seat = seat;
+		this.seatSesionId = seat.getSessionId();
 	}
 
 	public Seat getSeat() {

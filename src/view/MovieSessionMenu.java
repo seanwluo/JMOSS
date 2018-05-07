@@ -38,7 +38,7 @@ public class MovieSessionMenu extends AbstractMenu
 				seatService.seatList();
 				break;
 			case "2":
-				System.out.println("Enter the Session Id");
+				System.out.print("\nEnter the Session Id: ");
 				String id = reader.nextLine();
 				Seat seat = seatService.findById(id);
 				if(seat != null) {
@@ -53,6 +53,7 @@ public class MovieSessionMenu extends AbstractMenu
 				break;
 			case "0":
 				System.out.println("\nGoing back to Main Menu");
+				seatService.saveData();
 				break;
 			default:
 				System.out.println("\nWARNINIG!! option out of range.");

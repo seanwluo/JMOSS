@@ -7,7 +7,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
 /**
  * @author alial
@@ -29,21 +28,23 @@ public class FileService {
 	
 	// Parameters we can add them as we need 
 	public void write(String txt) {
-
+		System.out.println(txt);
 		try {
-			FileWriter fw = new FileWriter(fileName, true);
+			FileWriter fw = new FileWriter(fileName); // true for append data
 			BufferedWriter bw = new BufferedWriter(fw);
-			PrintWriter pw = new PrintWriter(bw);
+			bw.write(txt);
+			bw.close();
+			bw.flush();
+//			PrintWriter pw = new PrintWriter(bw);
+//
+//			pw.println(txt);
+//			pw.flush();
+//			pw.close();
 
-			pw.println(txt);
-			pw.flush();
-			pw.close();
-
-			JOptionPane.showMessageDialog(null, "Information saved");
+			System.out.println("File Saved");
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Information not saved");
-
+			System.out.println("Information not saved");
 		}
 	}
 

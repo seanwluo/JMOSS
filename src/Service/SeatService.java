@@ -59,19 +59,27 @@ public class SeatService
 
 	public void removeBooking(Seat seat) {
 		List<String> newData= new ArrayList<String>();
-		boolean deleted = false;
 		for(String seatData: seatsData)
 		{
 			String[] data = seatData.split(",");
 			String seatId = data[0].trim();
-			if(seatId.equals(seat.getSessionId()))
+			if(!seatId.equals(seat.getSessionId()))
 			{	
-				deleted = true;
-			} else {
 				newData.add(seatData);
 			}
 		}
 		
 		seatsData = newData;
+	}
+	
+	public void saveData()
+	{
+		String data = "seatSessionId, Row No, Seat No, Status\n";
+		for(String seatData : seatsData)
+		{
+			data += seatData + "\n";
+		}
+		
+		fService.write(data);
 	}
 }

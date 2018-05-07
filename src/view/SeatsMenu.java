@@ -38,6 +38,7 @@ public class SeatsMenu extends AbstractMenu
 				removeBookingProcess();
 				break;
 			case "0":
+				bookService.saveData();
 				System.out.println("\nGoing back to Movie Session Menu");
 				break;
 			default:
