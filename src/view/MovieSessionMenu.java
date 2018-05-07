@@ -1,10 +1,25 @@
 package view;
 
+import java.util.Scanner;
+
 import Service.SeatService;
+import model.MovieSession;
+import model.Seat;
 
 public class MovieSessionMenu extends AbstractMenu
 {
-
+	private MovieSession movieSession;
+	private SeatService seatService;
+	/**
+	 * reader from parent class
+	 */
+	public MovieSessionMenu(MovieSession movieSession)
+	{	
+		this.movieSession = movieSession;
+		reader = new Scanner(System.in);
+		seatService = new SeatService();
+	}
+	
 	@Override
 	protected String getMenu() {
 		return "\nMovie session Menu"
@@ -20,16 +35,25 @@ public class MovieSessionMenu extends AbstractMenu
 		{
 			case "1":
 				System.out.println("\nMovie session seats");
-				SeatService seatService = new SeatService();
 				seatService.seatList();
 				break;
 			case "2":
-				System.out.println("\nSeat selected");
-				SeatsMenu seatsMenu = new SeatsMenu();
-				seatsMenu.show();
+				System.out.print("\nEnter the Session Id: ");
+				String id = reader.nextLine();
+				Seat seat = seatService.findById(id);
+				if(seat != null) {
+					System.out.print("Seat selected");
+					
+					SeatsMenu seatsMenu = new SeatsMenu(seatService, seat);
+					seatsMenu.show();
+				} else {
+					System.out.println("\nSeat not found!!!");
+				}
+				
 				break;
 			case "0":
 				System.out.println("\nGoing back to Main Menu");
+				seatService.saveData();
 				break;
 			default:
 				System.out.println("\nWARNINIG!! option out of range.");

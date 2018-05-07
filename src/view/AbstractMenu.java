@@ -3,7 +3,7 @@ package view;
 import java.util.Scanner;
 
 public abstract class AbstractMenu {
-	private Scanner reader = new Scanner(System.in);
+	protected Scanner reader = new Scanner(System.in);
 	
 	public void show()
 	{

@@ -45,7 +45,7 @@ public class Seat {
 		this.seatNo = seatNo;
 	}
 
-	public String isBook() {
+	public String getBook() {
 		return book;
 	}
 

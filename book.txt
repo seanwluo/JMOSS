@@ -1,0 +1,2 @@
+seatSessionId, email, suburb, time
+
