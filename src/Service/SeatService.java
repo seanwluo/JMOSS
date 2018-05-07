@@ -56,4 +56,22 @@ public class SeatService
 		
 		return seat;
 	}
+
+	public void removeBooking(Seat seat) {
+		List<String> newData= new ArrayList<String>();
+		boolean deleted = false;
+		for(String seatData: seatsData)
+		{
+			String[] data = seatData.split(",");
+			String seatId = data[0].trim();
+			if(seatId.equals(seat.getSessionId()))
+			{	
+				deleted = true;
+			} else {
+				newData.add(seatData);
+			}
+		}
+		
+		seatsData = newData;
+	}
 }

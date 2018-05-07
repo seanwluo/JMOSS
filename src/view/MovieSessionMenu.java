@@ -44,7 +44,7 @@ public class MovieSessionMenu extends AbstractMenu
 				if(seat != null) {
 					System.out.print("Seat selected");
 					
-					SeatsMenu seatsMenu = new SeatsMenu(seat);
+					SeatsMenu seatsMenu = new SeatsMenu(seatService, seat);
 					seatsMenu.show();
 				} else {
 					System.out.println("\nSeat not found!!!");

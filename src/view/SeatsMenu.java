@@ -1,14 +1,21 @@
 package view;
 
+import Service.BookService;
+import Service.SeatService;
+import model.Book;
 import model.Seat;
 
 public class SeatsMenu extends AbstractMenu
-{
+{	
+	private BookService bookService;
+	private SeatService seatService; 
 	private Seat seat;
 	
-	public SeatsMenu(Seat seat)
+	public SeatsMenu(SeatService seatService, Seat seat)
 	{
 		this.seat = seat;
+		this.seatService = seatService;
+		bookService = new BookService(seatService, seat);
 	}
 	
 	@Override
@@ -25,22 +32,10 @@ public class SeatsMenu extends AbstractMenu
 		switch(choice)
 		{
 			case "1":
-				if(seat.getBook().equals("available") || seat.getBook().equals("")) 
-				{
-					seat.setBook("booked");
-					System.out.println("\nSeat is Booked");
-				} else {
-					System.out.println("Seat is already booked.");
-				}
+				bookingProcess();
 				break;
 			case "2":
-				if(!seat.getBook().equals("available")) 
-				{
-					seat.setBook("available");
-					System.out.println("\nSeat is available");
-				} else {
-					System.out.println("Seat is not booked.");
-				}
+				removeBookingProcess();
 				break;
 			case "0":
 				System.out.println("\nGoing back to Movie Session Menu");
@@ -49,6 +44,37 @@ public class SeatsMenu extends AbstractMenu
 				System.out.println("\nWARNINIG!! option out of range.");
 				System.out.println("\nEnter options from menu list");
 				break;
+		}
+	}
+	
+	private void bookingProcess()
+	{
+		System.out.print("\nEnter the customer email: ");
+//		TODO: Check email format
+		String email = reader.nextLine();
+		
+		System.out.print("\nEnter the suburb: ");
+		String suburb = reader.nextLine();
+		
+		if(seat.getBook().equals("available") || seat.getBook().equals("")) 
+		{	
+			bookService.createBooking(email, suburb);
+			seat.setBook("booked");
+			System.out.println("\nSeat is Booked");
+		} else {
+			System.out.println("Seat is already booked.");
+		}
+	}
+	
+	private void removeBookingProcess()
+	{
+		if(!seat.getBook().equals("available")) 
+		{	
+			bookService.removeBooking(seat.getSessionId());
+			seat.setBook("available");
+			System.out.println("\nSeat is available");
+		} else {
+			System.out.println("Seat is not booked.");
 		}
 	}
 
