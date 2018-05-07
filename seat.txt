@@ -1,2 +1,2 @@
 seatSessionId, Row No, Seat No, Status
-1, A, 4, booked
+1, A, 20,available

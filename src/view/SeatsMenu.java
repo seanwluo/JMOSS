@@ -32,10 +32,16 @@ public class SeatsMenu extends AbstractMenu
 		switch(choice)
 		{
 			case "1":
-				bookingProcess();
+				if(confirmation("Do you want to booking?")) {
+					bookingProcess();
+				}
+				
 				break;
 			case "2":
-				removeBookingProcess();
+				if(confirmation("Do you want to delete booking?")) {
+					removeBookingProcess();
+				}
+				
 				break;
 			case "0":
 				bookService.saveData();
@@ -78,5 +84,17 @@ public class SeatsMenu extends AbstractMenu
 			System.out.println("Seat is not booked.");
 		}
 	}
-
+	
+	private boolean confirmation(String str) {
+		System.out.print(str);
+		System.out.print("\n Enter (y/n): ");
+		String ch = reader.nextLine();
+		ch = ch.toLowerCase();
+		if(ch.equals("y") || ch.equals("yes"))
+		{
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
