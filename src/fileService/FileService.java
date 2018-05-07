@@ -57,11 +57,12 @@ public class FileService {
 		try {
 
 			BufferedReader input = new BufferedReader(new FileReader (fileName));
-		  input.readLine(); //ignore the first line
-			while (input.hasNext()) {
-//				System.out.println(data);
-				dataArray.add(input.readLine(););
-			}
+		    String data = input.readLine(); //ignore the first line
+			do {
+				data = input.readLine();
+				if (data != null)
+					dataArray.add(data);
+			} while (data != null);
 			input.close();
 		} catch (IOException e) {
 			System.out.println("File Reading Error!!");
