@@ -33,7 +33,12 @@ public class SeatsMenu extends AbstractMenu
 		{
 			case "1":
 				if(confirmation("Do you want to booking?")) {
-					bookingProcess();
+					System.out.println(Book.count);
+					if(Book.count >= 20) {
+						System.out.println("\nLimt cross! Book only 20 seats per day.");
+					} else {
+						bookingProcess();
+					}
 				}
 				
 				break;
@@ -66,7 +71,8 @@ public class SeatsMenu extends AbstractMenu
 		if(seat.getBook().equals("available") || seat.getBook().equals("")) 
 		{	
 			bookService.createBooking(email, suburb);
-			seat.setBook("booked");
+//			seat.setBook("booked");
+			seatService.createBooking(seat);
 			System.out.println("\nSeat is Booked");
 		} else {
 			System.out.println("Seat is already booked.");
@@ -78,7 +84,8 @@ public class SeatsMenu extends AbstractMenu
 		if(!seat.getBook().equals("available")) 
 		{	
 			bookService.removeBooking(seat.getSessionId());
-			seat.setBook("available");
+//			seat.setBook("available");
+			seatService.removeBooking(seat);
 			System.out.println("\nSeat is available");
 		} else {
 			System.out.println("Seat is not booked.");
@@ -92,7 +99,7 @@ public class SeatsMenu extends AbstractMenu
 		ch = ch.toLowerCase();
 		if(ch.equals("y") || ch.equals("yes"))
 		{
-			return true;
+		return true;
 		} else {
 			return false;
 		}

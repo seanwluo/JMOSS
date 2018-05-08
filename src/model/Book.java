@@ -1,11 +1,13 @@
 package model;
 
-public class Book {
-	Seat seat;
-	String seatSesionId;
-	String email;
-	String suburb;
-	String time;
+public class Book
+{	
+	public static int count=0;
+	private Seat seat;
+	private String seatSesionId;
+	private String email;
+	private String suburb;
+	private String time;
 	
 	public Book(Seat seat)
 	{
