@@ -58,7 +58,7 @@ public class MovieSessionService
 	}
 	
 	public List<MovieSession> weekData() {
-		List<MovieSession> movieSessions = new ArrayList();
+		List<MovieSession> movieSessions = new ArrayList<MovieSession>();
 		MovieSession movieSession = null;
 		
 		LocalDate today = LocalDate.now();    // Today date
