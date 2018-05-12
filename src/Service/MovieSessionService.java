@@ -62,7 +62,7 @@ public class MovieSessionService
 		MovieSession movieSession = null;
 		
 		LocalDate today = LocalDate.now();    // Today date
-		LocalDate theEndOfWeekDate=today.plusDays(7); //date for 7 date after today
+		LocalDate theEndOfWeekDate=today.plusDays(6); //date for 7 date after today
 		
 		for(String sessionData: movieSessionData) {
 			String[] data = sessionData.split(",");
