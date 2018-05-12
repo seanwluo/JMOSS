@@ -55,4 +55,24 @@ public class MovieSessionService
 		
 		return movieSession;
 	}
+	public MovieSession findByDate(String date) {
+		MovieSession movieSession = null;
+		for(String sessionData: movieSessionData) {
+			String[] data = sessionData.split(",");
+			
+			date = data[3].trim();
+			if (date.equals(date))
+			{
+				String sessionId = data[0].trim();
+				String movieName = data[1].trim();
+				String theaterName = data[2].trim();
+				String time = data[4].trim();
+				movieSession = new MovieSession(sessionId, movieName, theaterName, date, time);
+				System.out.println(movieSession.toString());
+				break;
+			}
+		}
+		
+		return movieSession;
+	}
 }
