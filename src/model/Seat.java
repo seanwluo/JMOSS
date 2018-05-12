@@ -4,7 +4,7 @@ public class Seat {
 	private String sessionSeatId;
 	private String rowNo;
 	private String seatNo;
-	private String book;
+	private String status;
 	
 	public Seat() {};
 	
@@ -13,12 +13,12 @@ public class Seat {
 		this.sessionSeatId = sessionSeatId;
 	}
 
-	public Seat(String sessionSeatId, String rowNo, String seatNo, String book)
+	public Seat(String sessionSeatId, String rowNo, String seatNo, String status)
 	{
 		this.sessionSeatId = sessionSeatId;
 		this.rowNo = rowNo;
 		this.seatNo = seatNo;
-		this.book = book;
+		this.status = status;
 	}
 	
 	public String getSessionId() {
@@ -46,15 +46,15 @@ public class Seat {
 	}
 
 	public String getBook() {
-		return book;
+		return status;
 	}
 
 	public void setBook(String book) {
-		this.book = book;
+		this.status = book;
 	}
 	
 	public String toString()
 	{
-		return String.format("%s, %s, %s, %s", sessionSeatId, rowNo, seatNo, book);
+		return String.format("%s, %s, %s, %s", sessionSeatId, rowNo, seatNo, status);
 	}
 }
