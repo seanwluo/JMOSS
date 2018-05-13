@@ -1,5 +1,7 @@
 package view;
 
+import java.util.List;
+
 import Service.MovieSessionService;
 import model.MovieSession;
 
@@ -30,6 +32,7 @@ public class MainMenu extends AbstractMenu
 			case "1":
 				System.out.println("\nAll Movie session list");
 				mvService.list();
+				filterMenu();
 				break;
 			case "2":
 				System.out.println("\nOne week Movie session list");
@@ -55,6 +58,40 @@ public class MainMenu extends AbstractMenu
 			default:
 				System.out.println("\nWARNINIG!! option out of range.");
 				System.out.println("\nEnter options from menu list");
+				break;
+		}
+	}
+	
+	private void filterMenu()
+	{
+		System.out.print("\nOrder by: 1. Movie Name 2. Theater Name 3. Date");
+		System.out.print("\nEnter choice");
+		String choice = reader.nextLine();
+		switch(choice)
+		{
+			case "1":
+				System.out.print("\nEnter Movie name:");
+				choice = reader.nextLine();
+				mvService.findBy("movieName", choice);
+				System.out.print("\nOrder by Movie Name");
+				break;
+			case "2":
+				System.out.print("\nEnter Theater name:");
+				choice = reader.nextLine();
+				mvService.findBy("theaterName", choice);
+				System.out.print("\nOrder by Theather Name");
+				break;
+			case "3":
+				System.out.print("\nEnter Date:");
+				choice = reader.nextLine();
+				mvService.findBy("date", choice);
+				System.out.println("\nOrbder by date");
+				break;
+			case "4":
+				System.out.print("\nEnter Time:");
+				choice = reader.nextLine();
+				mvService.findBy("time", choice);
+				System.out.println("\nOrbder by time");
 				break;
 		}
 	}
