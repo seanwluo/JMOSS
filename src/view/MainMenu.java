@@ -16,8 +16,9 @@ public class MainMenu extends AbstractMenu
 	protected String getMenu()
 	{
 		return "\nMenu"
-				+ "\n1. List movie session"
-				+ "\n2. Select movie session"
+				+ "\n1. List all movie session"
+				+ "\n2. List a week movie session"
+				+ "\n3. Select movie session"
 				+ "\n0. Exit"
 				+ "\nEnter the choice: ";
 	}
@@ -27,10 +28,14 @@ public class MainMenu extends AbstractMenu
 		switch(choice)
 		{
 			case "1":
-				System.out.println("\nMovie session list");
+				System.out.println("\nAll Movie session list");
 				mvService.list();
 				break;
 			case "2":
+				System.out.println("\nOne week Movie session list");
+				mvService.weekData();
+				break;
+			case "3":
 				System.out.println("\nEnter Movie Session Id: ");
 				String id = reader.nextLine();
 				MovieSession movieSession = mvService.findById(id);

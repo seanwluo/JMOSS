@@ -59,6 +59,7 @@ public class SeatService
 
 	public void removeBooking(Seat seat) {
 		List<String> newData= new ArrayList<String>();
+		seat.setBook("available");
 		for(String seatData: seatsData)
 		{
 			String[] data = seatData.split(",");
@@ -81,5 +82,24 @@ public class SeatService
 		}
 		
 		fService.write(data);
+	}
+
+	public void createBooking(Seat seat) {
+		List<String> newData= new ArrayList<String>();
+		seat.setBook("booked");
+		for(String seatData: seatsData)
+		{
+			String[] data = seatData.split(",");
+			String seatId = data[0].trim();
+			if(seatId.equals(seat.getSessionId()))
+			{	
+				newData.add(seat.toString());
+			} else {
+				newData.add(seatData);
+			}
+		}
+		
+		seatsData = newData;
+		
 	}
 }
