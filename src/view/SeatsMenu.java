@@ -24,11 +24,12 @@ public class SeatsMenu extends AbstractMenu
 				+ "\n1.  Book a seat"
 				+ "\n2.  Remove booking"
 				+ "\n0.  Back"
+				+ "\n00. Main menu"
 				+ "\nEnter the choice: ";
 	}
 
 	@Override
-	protected void processChoice(String choice) {
+	protected String processChoice(String choice) {
 		switch(choice)
 		{
 			case "1":
@@ -52,11 +53,17 @@ public class SeatsMenu extends AbstractMenu
 				bookService.saveData();
 				System.out.println("\nGoing back to Movie Session Menu");
 				break;
+			case "00":
+				bookService.saveData();
+//				System.out.println("\nGoing back to Main Menu");
+				break;
 			default:
 				System.out.println("\nWARNINIG!! option out of range.");
 				System.out.println("\nEnter options from menu list");
 				break;
 		}
+		
+		return choice;
 	}
 	
 	private void bookingProcess()
