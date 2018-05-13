@@ -18,7 +18,7 @@ public class MainMenu extends AbstractMenu
 		return "\nMenu"
 				+ "\n1. List all movie session"
 				+ "\n2. List a week movie session"
-				+ "\n2. Select movie session"
+				+ "\n3. Select movie session"
 				+ "\n0. Exit"
 				+ "\nEnter the choice: ";
 	}
