@@ -49,9 +49,10 @@ public class BookService
 	
 	public void createBooking(String email, String suburb) {
 		Book book = new Book(seat);
-		
+
 		book.setEmail(email);
 		book.setEmail(suburb);
+		Book.count += 1;
 		String data = String.format("%s, %s, %s", book.getSeatSesionId(), email, suburb);
 		bookingData.add(data);
 	}
@@ -66,6 +67,7 @@ public class BookService
 			if(seatId.equals(seatId))
 			{	
 				deleted = true;
+				Book.count -= 1;
 				seatService.removeBooking(seat);
 			} else {
 				newBookingData.add(booking);
