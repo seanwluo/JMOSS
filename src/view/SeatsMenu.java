@@ -1,5 +1,7 @@
 package view;
 
+import java.util.regex.Pattern;
+
 import Service.BookService;
 import Service.SeatService;
 import model.Book;
@@ -61,9 +63,7 @@ public class SeatsMenu extends AbstractMenu
 	
 	private void bookingProcess()
 	{
-		System.out.print("\nEnter the customer email: ");
-//		TODO: Check email format
-		String email = reader.nextLine();
+		String email = emailInput();
 		
 		System.out.print("\nEnter the suburb: ");
 		String suburb = reader.nextLine();
@@ -71,7 +71,6 @@ public class SeatsMenu extends AbstractMenu
 		if(seat.getBook().equals("available") || seat.getBook().equals("")) 
 		{	
 			bookService.createBooking(email, suburb);
-//			seat.setBook("booked");
 			seatService.createBooking(seat);
 			System.out.println("\nSeat is Booked");
 		} else {
@@ -84,7 +83,6 @@ public class SeatsMenu extends AbstractMenu
 		if(!seat.getBook().equals("available")) 
 		{	
 			bookService.removeBooking(seat.getSessionId());
-//			seat.setBook("available");
 			seatService.removeBooking(seat);
 			System.out.println("\nSeat is available");
 		} else {
@@ -104,4 +102,36 @@ public class SeatsMenu extends AbstractMenu
 			return false;
 		}
 	}
+	
+	private String emailInput()
+	{
+		String email = null;
+		boolean validEmail = false;
+		do {
+			System.out.print("\nEnter the customer email: ");
+			email = reader.nextLine();
+			validEmail = isEmailValid(email);
+			if(!validEmail) {
+				System.out.println("Invalid email.");
+			}
+		} while(!validEmail);
+		
+		return email;
+	}
+	
+	private boolean isEmailValid(String email)
+	{
+		String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+							"[a-zA-Z0-9_+&*-]+)*@" +
+							"(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+							"A-Z]{2,7}$";
+							
+		Pattern pat = Pattern.compile(emailRegex);
+		if (email == null) {
+			return false;
+		}
+		
+		return pat.matcher(email).matches();
+	}
+	
 }
