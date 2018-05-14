@@ -24,7 +24,7 @@ public class MainMenu extends AbstractMenu
 	}
 	
 	@Override
-	protected void processChoice(String choice) {
+	protected String processChoice(String choice) {
 		switch(choice)
 		{
 			case "1":
@@ -57,5 +57,7 @@ public class MainMenu extends AbstractMenu
 				System.out.println("\nEnter options from menu list");
 				break;
 		}
+		
+		return choice;
 	}
 }
