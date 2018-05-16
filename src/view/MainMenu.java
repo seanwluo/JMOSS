@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.Toolkit;
+
 import Service.MovieSessionService;
 import model.MovieSession;
 
@@ -50,6 +52,7 @@ public class MainMenu extends AbstractMenu
 				
 				break;
 			case "0":
+				Toolkit.getDefaultToolkit().beep();
 				System.out.println("\nExiting System. \n Bye!!! ");
 				break;
 			default:
