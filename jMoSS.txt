@@ -1,26 +1,26 @@
 sessionId,MovieName,TheatreName,date,time
-1,Movie1,St Kilda, 1/2,9:00
-2,Movie2,St Kilda, 1/2,12:00
-3,Movie3,St Kilda, 1/2,15:00
-4,Movie4,St Kilda, 1/2,17:00
-5,Movie5,St Kilda, 1/2,20:00
-6,Movie1,Fitzroy, 1/2,9:00
-7,Movie2,Fitzroy, 1/2,12:00
-8,Movie3,Fitzroy, 1/2,15:00
-9,Movie4,Fitzroy, 1/2,17:00
-10,Movie5,Fitzroy, 1/2,20:00
-11,Movie1,Melbourne CBD, 1/2,9:00
-12,Movie2,Melbourne CBD, 1/2,12:00
-13,Movie3,Melbourne CBD, 1/2,15:00
-14,Movie4,Melbourne CBD, 1/2,17:00
-15,Movie5,Melbourne CBD, 1/2,20:00
-16,Movie1,Sunshine, 1/2,9:00
-17,Movie2,Sunshine, 1/2,12:00
-18,Movie3,Sunshine, 1/2,15:00
-19,Movie4,Sunshine, 1/2,17:00
-20,Movie5,Sunshine, 1/2,20:00
-21,Movie1,Lilydale, 1/2,9:00
-22,Movie2,Lilydale, 1/2,12:00
-23,Movie3,Lilydale, 1/2,15:00
-24,Movie4,Lilydale, 1/2,17:00
-25,Movie5,Lilydale, 1/2,20:00
+1,Movie1,St Kilda, 2018-05-13,9:00
+2,Movie2,St Kilda, 2018-05-27,12:00
+3,Movie3,St Kilda, 2018-05-17,15:00
+4,Movie4,St Kilda, 2018-05-26,17:00
+5,Movie5,St Kilda, 2018-05-22,20:00
+6,Movie1,Fitzroy, 2018-05-15,9:00
+7,Movie2,Fitzroy, 2018-05-17,12:00
+8,Movie3,Fitzroy, 2018-05-22,15:00
+9,Movie4,Fitzroy, 2018-05-25,17:00
+10,Movie5,Fitzroy, 2018-05-16,20:00
+11,Movie1,Melbourne CBD, 2018-05-20,9:00
+12,Movie2,Melbourne CBD, 2018-05-22,12:00
+13,Movie3,Melbourne CBD, 2018-05-19,15:00
+14,Movie4,Melbourne CBD, 2018-05-20,17:00
+15,Movie5,Melbourne CBD, 2018-05-24,20:00
+16,Movie1,Sunshine, 2018-05-15,9:00
+17,Movie2,Sunshine, 2018-05-10,12:00
+18,Movie3,Sunshine, 2018-05-16,15:00
+19,Movie4,Sunshine, 2018-05-20,17:00
+20,Movie5,Sunshine, 2018-05-23,20:00
+21,Movie1,Lilydale, 2018-05-19,9:00
+22,Movie2,Lilydale, 2018-05-20,12:00
+23,Movie3,Lilydale, 2018-05-18,15:00
+24,Movie4,Lilydale, 2018-05-25,17:00
+25,Movie5,Lilydale, 2018-05-22,20:00
