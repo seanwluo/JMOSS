@@ -1,5 +1,6 @@
 package view;
 
+import Service.BookService;
 import Service.MovieSessionService;
 import model.MovieSession;
 
@@ -19,6 +20,7 @@ public class MainMenu extends AbstractMenu
 				+ "\n1. List all movie session"
 				+ "\n2. List a week movie session"
 				+ "\n3. Select movie session"
+				+ "\n4 List booking"
 				+ "\n0. Exit"
 				+ "\nEnter the choice: ";
 	}
@@ -48,6 +50,12 @@ public class MainMenu extends AbstractMenu
 					System.out.println("Movie Session Not Found!!!");
 				}
 				
+				break;
+			case "4":
+				BookService bkService = new BookService();
+				bkService.list();
+				BookMenu bkMenu = new BookMenu();
+				bkMenu.show();
 				break;
 			case "0":
 				System.out.println("\nExiting System. \n Bye!!! ");

@@ -35,16 +35,13 @@ public class FileService {
 			bw.write(txt);
 			bw.close();
 			bw.flush();
-//			PrintWriter pw = new PrintWriter(bw);
-//
-//			pw.println(txt);
-//			pw.flush();
-//			pw.close();
 
-			System.out.println("File Saved");
+			// uncomment for debugging
+//			System.out.println("File Saved");
 			
 		} catch (Exception e) {
-			System.out.println("Information not saved");
+			// uncomment for debugging
+//			System.out.println("Information not saved");
 		}
 	}
 
