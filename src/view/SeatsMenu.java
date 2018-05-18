@@ -1,5 +1,7 @@
 package view;
 
+import java.util.regex.Pattern;
+
 import Service.BookService;
 import Service.SeatService;
 import model.Book;
@@ -24,11 +26,12 @@ public class SeatsMenu extends AbstractMenu
 				+ "\n1.  Book a seat"
 				+ "\n2.  Remove booking"
 				+ "\n0.  Back"
+				+ "\n00. Main menu"
 				+ "\nEnter the choice: ";
 	}
 
 	@Override
-	protected void processChoice(String choice) {
+	protected String processChoice(String choice) {
 		switch(choice)
 		{
 			case "1":
@@ -50,20 +53,24 @@ public class SeatsMenu extends AbstractMenu
 				break;
 			case "0":
 				bookService.saveData();
-				System.out.println("\nGoing back to Movie Session Menu");
+				System.out.println("\nGoing back to Seat Session Menu");
+				break;
+			case "00":
+				bookService.saveData();
+//				System.out.println("\nGoing back to Main Menu");
 				break;
 			default:
 				System.out.println("\nWARNINIG!! option out of range.");
-				System.out.println("\nEnter options from menu list");
+				System.out.print("\nEnter options from menu list:");
 				break;
 		}
+		
+		return choice;
 	}
 	
 	private void bookingProcess()
 	{
-		System.out.print("\nEnter the customer email: ");
-//		TODO: Check email format
-		String email = reader.nextLine();
+		String email = emailInput();
 		
 		System.out.print("\nEnter the suburb: ");
 		String suburb = reader.nextLine();
@@ -71,11 +78,10 @@ public class SeatsMenu extends AbstractMenu
 		if(seat.getBook().equals("available") || seat.getBook().equals("")) 
 		{	
 			bookService.createBooking(email, suburb);
-//			seat.setBook("booked");
 			seatService.createBooking(seat);
 			System.out.println("\nSeat is Booked");
 		} else {
-			System.out.println("Seat is already booked.");
+			System.out.println("\nSeat is already booked.");
 		}
 	}
 	
@@ -84,7 +90,6 @@ public class SeatsMenu extends AbstractMenu
 		if(!seat.getBook().equals("available")) 
 		{	
 			bookService.removeBooking(seat.getSessionId());
-//			seat.setBook("available");
 			seatService.removeBooking(seat);
 			System.out.println("\nSeat is available");
 		} else {
@@ -104,4 +109,36 @@ public class SeatsMenu extends AbstractMenu
 			return false;
 		}
 	}
+	
+	private String emailInput()
+	{
+		String email = null;
+		boolean validEmail = false;
+		do {
+			System.out.print("\nEnter the customer email: ");
+			email = reader.nextLine();
+			validEmail = isEmailValid(email);
+			if(!validEmail) {
+				System.out.println("Invalid email.");
+			}
+		} while(!validEmail);
+		
+		return email;
+	}
+	
+	private boolean isEmailValid(String email)
+	{
+		String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+							"[a-zA-Z0-9_+&*-]+)*@" +
+							"(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+							"A-Z]{2,7}$";
+							
+		Pattern pat = Pattern.compile(emailRegex);
+		if (email == null) {
+			return false;
+		}
+		
+		return pat.matcher(email).matches();
+	}
+	
 }

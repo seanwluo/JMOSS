@@ -33,7 +33,7 @@ public class App
 				exit = true;
 			} else
 			{
-				System.out.println("\nWorng Username or Password");
+				System.out.println("\nWrong Username or Password");
 			}
 		} while(exit!=true);
 

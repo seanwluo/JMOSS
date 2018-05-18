@@ -30,7 +30,7 @@ public class MovieSessionMenu extends AbstractMenu
 	}
 
 	@Override
-	protected void processChoice(String choice) {
+	protected String processChoice(String choice) {
 		switch(choice)
 		{
 			case "1":
@@ -38,14 +38,19 @@ public class MovieSessionMenu extends AbstractMenu
 				seatService.seatList();
 				break;
 			case "2":
-				System.out.print("\nEnter the Session Id: ");
+				System.out.print("\nEnter the seat Id: ");
 				String id = reader.nextLine();
 				Seat seat = seatService.findById(id);
 				if(seat != null) {
 					System.out.print("Seat selected");
 					
 					SeatsMenu seatsMenu = new SeatsMenu(seatService, seat);
-					seatsMenu.show();
+					choice = seatsMenu.show();
+					System.out.println("------");
+					System.out.println(choice);
+					if(choice.equals("00")) {
+						this.processChoice("0");
+					}
 				} else {
 					System.out.println("\nSeat not found!!!");
 				}
@@ -60,6 +65,7 @@ public class MovieSessionMenu extends AbstractMenu
 				System.out.println("\nEnter options from menu list");
 				break;
 		}
+		return choice;
 	}
 
 }

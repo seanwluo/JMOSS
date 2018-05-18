@@ -35,16 +35,13 @@ public class FileService {
 			bw.write(txt);
 			bw.close();
 			bw.flush();
-//			PrintWriter pw = new PrintWriter(bw);
-//
-//			pw.println(txt);
-//			pw.flush();
-//			pw.close();
 
-			System.out.println("File Saved");
+			// uncomment for debugging
+//			System.out.println("File Saved");
 			
 		} catch (Exception e) {
-			System.out.println("Information not saved");
+			// uncomment for debugging
+//			System.out.println("Information not saved");
 		}
 	}
 
@@ -54,11 +51,12 @@ public class FileService {
 
 	public List<String> read() {
 		File file = new File(fileName);
-		List<String> dataArray = new ArrayList();
+		List<String> dataArray = new ArrayList<String>();
 		try {
 
 			BufferedReader input = new BufferedReader(new FileReader (fileName));
-		    String data = input.readLine(); //ignore the first line
+		    String data = null;
+		    input.readLine();//ignore the first line
 			do {
 				data = input.readLine();
 				if (data != null)

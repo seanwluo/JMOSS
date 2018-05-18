@@ -18,11 +18,16 @@ public class MovieSessionService
 		this.movieSessionData = fService.read();
 	}
 	
-	public void list()
+	public List<MovieSession> list()
 	{
-		List<MovieSession> movieSessions = new ArrayList();
+		List<MovieSession> movieSessions = new ArrayList<MovieSession>();
 		System.out.println("Seesion Id, Movie Name, Theater Name, Date, Time");
 		for(String sessionData: movieSessionData) {
+			if(sessionData.equals(null) || sessionData.equals(""))
+			{
+				continue;
+			}
+			
 			String[] data = sessionData.split(",");
 			
 			String sessionId = data[0].trim();
@@ -34,6 +39,7 @@ public class MovieSessionService
 			System.out.println(movieSession.toString());
 			movieSessions.add(movieSession);
 		}
+		return movieSessions;
 	}
 
 	public MovieSession findById(String id) {
@@ -65,6 +71,11 @@ public class MovieSessionService
 		LocalDate theEndOfWeekDate=today.plusDays(6); //date for 7 date after today
 		
 		for(String sessionData: movieSessionData) {
+			if(sessionData.equals(null) || sessionData.equals(""))
+			{
+				continue;
+			}
+			
 			String[] data = sessionData.split(",");
 			String date = data[3].trim();
 			LocalDate movieDate = LocalDate.parse(date);
@@ -81,5 +92,59 @@ public class MovieSessionService
 				}
 		}
 		return movieSessions;
+	}
+
+	public void findBy(String field, String value) {
+		List<MovieSession> movieSessions = new ArrayList<MovieSession>();
+		System.out.println("Seesion Id, Movie Name, Theater Name, Date, Time");
+		for(String sessionData: movieSessionData) {
+			if(sessionData.equals(null) || sessionData.equals(""))
+			{
+				continue;
+			}
+			
+			String[] data = sessionData.split(",");
+			
+			String sessionId = data[0].trim();
+			String movieName = data[1].trim();
+			String theaterName = data[2].trim();
+			String date = data[3].trim();
+			String time = data[4].trim();
+			
+			if(field.equals("movieName"))
+			{
+				if(movieName.equals(value))
+				{
+					MovieSession movieSession = new MovieSession(sessionId, movieName, theaterName, date, time);
+					System.out.println(movieSession.toString());
+					movieSessions.add(movieSession);
+				}
+			} else if(field.equals("theaterName"))
+			{
+				if(theaterName.equals(value))
+				{
+					MovieSession movieSession = new MovieSession(sessionId, movieName, theaterName, date, time);
+					System.out.println(movieSession.toString());
+					movieSessions.add(movieSession);
+				}
+			} else if(field.equals("date"))
+			{
+				if(date.equals(value))
+				{
+					MovieSession movieSession = new MovieSession(sessionId, movieName, theaterName, date, time);
+					System.out.println(movieSession.toString());
+					movieSessions.add(movieSession);
+				}
+			} else if(field.equals("time"))
+			{
+				if(time.equals(value))
+				{
+					MovieSession movieSession = new MovieSession(sessionId, movieName, theaterName, date, time);
+					System.out.println(movieSession.toString());
+					movieSessions.add(movieSession);
+				}
+			}
+		}
+//		return movieSessions;
 	}
 }
