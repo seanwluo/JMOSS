@@ -54,6 +54,8 @@ public class MainMenu extends AbstractMenu
 			case "4":
 				BookService bkService = new BookService();
 				bkService.list();
+				BookMenu bkMenu = new BookMenu();
+				bkMenu.show();
 				break;
 			case "0":
 				System.out.println("\nExiting System. \n Bye!!! ");

@@ -1,13 +1,11 @@
 package Service;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 import fileService.FileService;
 import model.Book;
-import model.MovieSession;
 import model.Seat;
 
 public class BookService
@@ -115,6 +113,27 @@ public class BookService
 			Book book = new Book(seatSessionId, email, suburb, time);
 			System.out.println(book.toString());
 			bookings.add(book);
+		}
+		
+	}
+
+	public void findByEmail(String email) {
+		List<Book> bookings = new ArrayList<Book>();
+		System.out.println("seatSessionId, email, suburb, time");
+		for(String bookData: bookingData) {
+			String[] data = bookData.split(",");
+			
+			String seatSessionId = data[0].trim();
+			String emailAdr = data[1].trim();
+			String suburb = data[2].trim();
+			String time = data[3].trim();
+			
+			if(emailAdr.equals(email))
+			{
+				Book book = new  Book(seatSessionId, email, suburb, time);
+				System.out.println(book.toString());
+				bookings.add(book);
+			}
 		}
 		
 	}
