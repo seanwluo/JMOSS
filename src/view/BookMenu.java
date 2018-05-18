@@ -17,7 +17,7 @@ public class BookMenu extends AbstractMenu
 	}
 
 	@Override
-	protected void processChoice(String choice) {
+	protected String processChoice(String choice) {
 		switch(choice) {
 		case "1":
 			String email = emailInput();
@@ -31,7 +31,7 @@ public class BookMenu extends AbstractMenu
 			System.out.println("\nEnter options from menu list");
 			break;
 		}
-		
+		return choice;	
 	}
 	
 	private String emailInput()
@@ -64,5 +64,4 @@ public class BookMenu extends AbstractMenu
 		
 		return pat.matcher(email).matches();
 	}
-
 }
