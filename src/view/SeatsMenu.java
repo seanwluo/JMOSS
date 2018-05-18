@@ -61,7 +61,7 @@ public class SeatsMenu extends AbstractMenu
 				break;
 			default:
 				System.out.println("\nWARNINIG!! option out of range.");
-				System.out.println("\nEnter options from menu list");
+				System.out.print("\nEnter options from menu list:");
 				break;
 		}
 		
@@ -81,7 +81,7 @@ public class SeatsMenu extends AbstractMenu
 			seatService.createBooking(seat);
 			System.out.println("\nSeat is Booked");
 		} else {
-			System.out.println("Seat is already booked.");
+			System.out.println("\nSeat is already booked.");
 		}
 	}
 	

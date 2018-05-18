@@ -38,7 +38,7 @@ public class MovieSessionMenu extends AbstractMenu
 				seatService.seatList();
 				break;
 			case "2":
-				System.out.print("\nEnter the Session Id: ");
+				System.out.print("\nEnter the seat Id: ");
 				String id = reader.nextLine();
 				Seat seat = seatService.findById(id);
 				if(seat != null) {
