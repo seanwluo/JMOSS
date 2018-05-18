@@ -21,6 +21,11 @@ public class SeatService
 		List<Seat> seats = new ArrayList<Seat>();
 		System.out.println("SeatId, Row No, Seat No, Status");
 		for(String seatData: seatsData) {
+			if(seatData.equals(null) || seatData.equals(""))
+			{
+				continue;
+			}
+			
 			String[] data = seatData.split(",");
 			
 			String sessionSeatId = data[0].trim();
@@ -40,6 +45,11 @@ public class SeatService
 		Seat seat = null;
 		
 		for(String seatData: seatsData) {
+			if(seatData.equals(null) || seatData.equals(""))
+			{
+				continue;
+			}
+			
 			String[] data = seatData.split(",");
 			
 			String sessionSeatId = data[0].trim();
@@ -61,7 +71,12 @@ public class SeatService
 		List<String> newData= new ArrayList<String>();
 		seat.setBook("available");
 		for(String seatData: seatsData)
-		{
+		{	
+			if(seatData.equals(null) || seatData.equals(""))
+			{
+				continue;
+			}
+			
 			String[] data = seatData.split(",");
 			String seatId = data[0].trim();
 			if(!seatId.equals(seat.getSessionId()))
@@ -88,7 +103,12 @@ public class SeatService
 		List<String> newData= new ArrayList<String>();
 		seat.setBook("booked");
 		for(String seatData: seatsData)
-		{
+		{	
+			if(seatData.equals(null) || seatData.equals(""))
+			{
+				continue;
+			}
+			
 			String[] data = seatData.split(",");
 			String seatId = data[0].trim();
 			if(seatId.equals(seat.getSessionId()))

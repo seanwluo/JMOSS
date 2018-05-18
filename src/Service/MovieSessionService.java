@@ -23,6 +23,11 @@ public class MovieSessionService
 		List<MovieSession> movieSessions = new ArrayList<MovieSession>();
 		System.out.println("Seesion Id, Movie Name, Theater Name, Date, Time");
 		for(String sessionData: movieSessionData) {
+			if(sessionData.equals(null) || sessionData.equals(""))
+			{
+				continue;
+			}
+			
 			String[] data = sessionData.split(",");
 			
 			String sessionId = data[0].trim();
@@ -66,6 +71,11 @@ public class MovieSessionService
 		LocalDate theEndOfWeekDate=today.plusDays(6); //date for 7 date after today
 		
 		for(String sessionData: movieSessionData) {
+			if(sessionData.equals(null) || sessionData.equals(""))
+			{
+				continue;
+			}
+			
 			String[] data = sessionData.split(",");
 			String date = data[3].trim();
 			LocalDate movieDate = LocalDate.parse(date);
@@ -88,6 +98,11 @@ public class MovieSessionService
 		List<MovieSession> movieSessions = new ArrayList<MovieSession>();
 		System.out.println("Seesion Id, Movie Name, Theater Name, Date, Time");
 		for(String sessionData: movieSessionData) {
+			if(sessionData.equals(null) || sessionData.equals(""))
+			{
+				continue;
+			}
+			
 			String[] data = sessionData.split(",");
 			
 			String sessionId = data[0].trim();

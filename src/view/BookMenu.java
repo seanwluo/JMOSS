@@ -12,7 +12,7 @@ public class BookMenu extends AbstractMenu
 	protected String getMenu() {
 		return "\nBooking Menu"
 				+ "\n1. Search by email: "
-				+ "\n0.; Exit"
+				+ "\n0. Exit"
 				+ "\nEnter the choice";
 	}
 

@@ -51,11 +51,12 @@ public class FileService {
 
 	public List<String> read() {
 		File file = new File(fileName);
-		List<String> dataArray = new ArrayList();
+		List<String> dataArray = new ArrayList<String>();
 		try {
 
 			BufferedReader input = new BufferedReader(new FileReader (fileName));
-		    String data = input.readLine(); //ignore the first line
+		    String data = null;
+		    input.readLine();//ignore the first line
 			do {
 				data = input.readLine();
 				if (data != null)

@@ -103,7 +103,14 @@ public class BookService
 	public void list() {
 		List<Book> bookings = new ArrayList<Book>();
 		System.out.println("seatSessionId, email, suburb, time");
+		System.out.println(bookingData.get(0));
 		for(String bookData: bookingData) {
+			//skip the blank line
+			if(bookData.equals(null) || bookData.equals(""))
+			{
+				continue;
+			}
+			
 			String[] data = bookData.split(",");
 			
 			String seatSessionId = data[0].trim();

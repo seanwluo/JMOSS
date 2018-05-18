@@ -32,6 +32,11 @@ public class UserService {
 		FileService fService = new FileService("User.txt");
 		List<String> users = fService.read();
 		for(String userData: users) {
+			if(userData.equals(null) || userData.equals(""))
+			{
+				continue;
+			}
+			
 			String[] data = userData.split(",");
 			String usrname = data[0].trim();
 			String password = data[1].trim();
