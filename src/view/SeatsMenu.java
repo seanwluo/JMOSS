@@ -50,7 +50,7 @@ public class SeatsMenu extends AbstractMenu
 				break;
 			case "0":
 				bookService.saveData();
-				System.out.println("\nGoing back to Movie Session Menu");
+				System.out.println("\nGoing back to Seat Session Menu");
 				break;
 			default:
 				System.out.println("\nWARNINIG!! option out of range.");
